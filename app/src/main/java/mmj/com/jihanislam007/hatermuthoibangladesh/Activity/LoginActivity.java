@@ -38,7 +38,16 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 retrieveLogin();
-                Toast.makeText(LoginActivity.this, "here i am", Toast.LENGTH_SHORT).show();
+            //    Toast.makeText(LoginActivity.this, "here i am", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        mbinding.RegisteredButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(getApplication(),RegistrationActivity.class));
+
             }
         });
 
@@ -60,10 +69,7 @@ public class LoginActivity extends AppCompatActivity {
             String user = mbinding.usernameLogInEditText.getText().toString();
             String pass = mbinding.passwordLogInEditText.getText().toString();
 
-            //String DbUser =
-            // Boolean checkmail = model.em
-
-            if(user.equals(model.getUser_name()) || pass.equals(model.getPass())){
+            if(user.equals(model.getUser_name()) && pass.equals(model.getPass())){
 
                 startActivity(new Intent(getApplication(),MainActivity.class));
 
